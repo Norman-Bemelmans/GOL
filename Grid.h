@@ -9,19 +9,21 @@
 
 class Grid
 {
-	static const int GRID_HEIGHT = 10;
-	static const int GRID_WIDTH = 10;
-	static const char LIVE_SYMBOL;
-	static const char DEAD_SYMBOL;
-	constexpr int LENGTH;
-	void read_grid(g);
-
 	public:
 	Grid();
-	char g[LENGTH];
-	void printGrid();
-	int neighborCount();
+	void print_grid();
+	int neighbor_count();
 	void update(Grid g);
+		
+	private:
+	static const int grid_height = 10;
+	static const int grid_width = 10;
+	static const char live_symbol;
+	static const char dead_symbol;
+	const int length;
+	char g[length];
+	void read_grid(g);
+
 
 };
 
