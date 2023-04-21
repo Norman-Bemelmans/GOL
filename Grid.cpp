@@ -9,9 +9,18 @@ const int Grid::grid_width;
 const char Grid::live_symbol = 'X';
 const char Grid::dead_symbol = '-';
 
-Grid::Grid() : cellmap()
+
+Grid::Grid()
 {
+	for (int i = 0; i != grid_height; i++)
+	{
+		for (int j = 0; j != grid_width; j++)
+		{
+			cellmap[i][j] = dead_symbol;
+		}
+	}
 }
+
 
 void Grid::print_grid()
 {
@@ -19,52 +28,53 @@ void Grid::print_grid()
 		{
 			for (int j = 1; j != grid_width - 1; j++)
 				{
-					std::cout << cellmap[i][j];
+					std::cout << cellmap[i][j] << " ";
 				}	
 			std::cout << "\n";
 		}
 }
 
+
 int Grid::neighbor_count(int i, int j)
 {
 	int count = 0;
 
-	if (*cellmap[i-1][j-1] == live_symbol)
+	if (cellmap[i-1][j-1] == live_symbol)
 	{
 		count++;
 	}
 	
-	if (*cellmap[i-1][j] == live_symbol)
+	if (cellmap[i-1][j] == live_symbol)
 	{
 		count++;
 	}
 
-	if (*cellmap[i-1][j+1] == live_symbol)
+	if (cellmap[i-1][j+1] == live_symbol)
 	{
 		count++;
 	}
 
-	if (*cellmap[i][j-1] == live_symbol)
+	if (cellmap[i][j-1] == live_symbol)
 	{
 		count++;
 	}
 
-	if (*cellmap[i][j+1] == live_symbol)
+	if (cellmap[i][j+1] == live_symbol)
 	{
 		count++;
 	}
 
-	if (*cellmap[i+1][j-1] == live_symbol)
+	if (cellmap[i+1][j-1] == live_symbol)
 	{
 		count++;
 	}
 
-	if (*cellmap[i+1][j] == live_symbol)
+	if (cellmap[i+1][j] == live_symbol)
 	{
 		count++;
 	}
 
-	if (*cellmap[i+1][j+1] == live_symbol)
+	if (cellmap[i+1][j+1] == live_symbol)
 	{
 		count++;
 	}
@@ -79,26 +89,26 @@ void Grid::update(Grid Other)
 		{
 			for (int j = 1; j != grid_width - 1; j++)
 				{
-					if (*cellmap[i][j] == live_symbol)
+					if (cellmap[i][j] == live_symbol)
 					{
 						if (neighbor_count(i,j) == 2 || neighbor_count(i,j) == 3)
 						{
-							*Other.cellmap[i][j] = live_symbol;
+							Other.cellmap[i][j] = live_symbol;
 						}
 						else
 						{
-							*Other.cellmap[i][j] = dead_symbol;
+							Other.cellmap[i][j] = dead_symbol;
 						}
 					}
 					else
 					{
 						if (neighbor_count(i,j) == 3)
 						{
-							*Other.cellmap[i][j] = live_symbol;
+							Other.cellmap[i][j] = live_symbol;
 						}
 						else
 						{
-							*Other.cellmap[i][j] = dead_symbol;
+							Other.cellmap[i][j] = dead_symbol;
 						}
 					}
 				}

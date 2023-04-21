@@ -6,7 +6,6 @@
 int main()
 {
 	Grid test;
-	test.cellmap = {0};
 	test.print_grid();
 
 	return 0;

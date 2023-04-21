@@ -9,6 +9,7 @@ class Grid
 {
 	public:
 	Grid();
+	void init();
 	void print_grid();
 	int neighbor_count(int i, int j);
 	void update(Grid Other);
@@ -19,7 +20,7 @@ class Grid
 	static const int grid_width = 10;
 	static const char live_symbol;
 	static const char dead_symbol;
-	char* cellmap[grid_height + 2][grid_width + 2];
+	char cellmap[grid_height + 2][grid_width + 2];
 
 };
 
