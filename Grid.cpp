@@ -86,9 +86,9 @@ int Grid::neighbor_count(int i, int j)
 
 void Grid::update(Grid Other)
 {
-	for (int i = 1; i != grid_height - 1; i++)
+	for (int i = 1; i < grid_height + 1; i++)
 		{
-			for (int j = 1; j != grid_width - 1; j++)
+			for (int j = 1; j < grid_width + 1; j++)
 				{
 					if (cellmap[i][j] == live_symbol)
 					{
