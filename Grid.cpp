@@ -3,6 +3,7 @@
 
 #include "Grid.h"
 #include <iostream>
+#include <fstream>
 
 const int Grid::grid_height;
 const int Grid::grid_width;
@@ -12,9 +13,9 @@ const char Grid::dead_symbol = '-';
 
 Grid::Grid()
 {
-	for (int i = 0; i != grid_height; i++)
+	for (int i = 0; i < grid_height + 2; i++)
 	{
-		for (int j = 0; j != grid_width; j++)
+		for (int j = 0; j < grid_width + 2; j++)
 		{
 			cellmap[i][j] = dead_symbol;
 		}
@@ -24,9 +25,9 @@ Grid::Grid()
 
 void Grid::print_grid()
 {
-	for (int i = 1; i != grid_height - 1; i++)
+	for (int i = 1; i < grid_height + 1; i++)
 		{
-			for (int j = 1; j != grid_width - 1; j++)
+			for (int j = 1; j < grid_width + 1; j++)
 				{
 					std::cout << cellmap[i][j] << " ";
 				}	
@@ -115,5 +116,35 @@ void Grid::update(Grid Other)
 		}
 }
 
+
+void Grid::read_from_file()
+{
+	std::ifstream grid_in;
+	grid_in.open("cellmap_init.txt");
+	
+	for (int i = 1; i < grid_height + 1; i++)
+		{
+			for (int j = 1; j < grid_width + 1; j++)
+				{
+					grid_in >> cellmap[i][j];
+				}
+		}
+
+
+	for (int i = 1; i < grid_height + 1; i++)
+		{
+			for (int j = 1; j < grid_width + 1; j++)
+				{
+					if (cellmap[i][j] == '0')
+					{
+						cellmap[i][j] = dead_symbol;
+					}
+					else
+					{
+						cellmap[i][j] = live_symbol;
+					}
+				}
+		}
+}
 
 
