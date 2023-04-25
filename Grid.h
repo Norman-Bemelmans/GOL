@@ -16,8 +16,8 @@ class Grid
 	void read_from_file();
 		
 	private:
-	static const int grid_height = 10;
-	static const int grid_width = 10;
+	static const int grid_height = 40;
+	static const int grid_width = 40;
 	static const char live_symbol;
 	static const char dead_symbol;
 	char cellmap[grid_height + 2][grid_width + 2];
