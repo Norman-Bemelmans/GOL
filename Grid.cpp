@@ -90,26 +90,26 @@ void Grid::update(Grid Other)
 		{
 			for (int j = 1; j < grid_width + 1; j++)
 				{
-					if (cellmap[i][j] == live_symbol)
+					if (Other.cellmap[i][j] == live_symbol)
 					{
-						if (neighbor_count(i,j) == 2 || neighbor_count(i,j) == 3)
+						if (Other.neighbor_count(i,j) == 2 || Other.neighbor_count(i,j) == 3)
 						{
-							Other.cellmap[i][j] = live_symbol;
+							cellmap[i][j] = live_symbol;
 						}
 						else
 						{
-							Other.cellmap[i][j] = dead_symbol;
+							cellmap[i][j] = dead_symbol;
 						}
 					}
 					else
 					{
-						if (neighbor_count(i,j) == 3)
+						if (Other.neighbor_count(i,j) == 3)
 						{
-							Other.cellmap[i][j] = live_symbol;
+							cellmap[i][j] = live_symbol;
 						}
 						else
 						{
-							Other.cellmap[i][j] = dead_symbol;
+							cellmap[i][j] = dead_symbol;
 						}
 					}
 				}
