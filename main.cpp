@@ -6,7 +6,8 @@
 
 int main()
 {
-	std::cout << "Press 'ENTER' to advance one generation... press 'CTRL + C' to quit:\n\n";
+	std::cout << "Press 'ENTER' to advance one generation...";
+	std::cout << "Press 'CTRL + c' to quit.\n\n";
 	Grid grid_zero;
 	Grid grid_one;
 	grid_zero.read_from_file();

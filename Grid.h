@@ -8,12 +8,12 @@
 class Grid
 {
 	public:
-	Grid();
-	void init();
+	Grid(); // Data structure to hold grid of cells
 	void print_grid();
 	int neighbor_count(int i, int j);
 	void update(Grid Other);
-	void read_from_file();
+	void read_from_file(); // Reads initial cell configuration 
+						   // from text file
 		
 	private:
 	static const int grid_height = 40;
