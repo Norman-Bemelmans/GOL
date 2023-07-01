@@ -2,8 +2,8 @@
 //Grid holds a cellmap for use in Conway's game of life.
 
 
-#ifndef GAME_OF_LIFE_H
-#define GAME_OF_LIFE_H
+#ifndef GRID_H
+#define GRID_H
 
 class Grid
 {
