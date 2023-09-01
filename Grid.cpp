@@ -145,6 +145,7 @@ void Grid::read_from_file()
 					}
 				}
 		}
+	grid_in.close();
 }
 
 
